@@ -29,10 +29,18 @@
     "scrolling",
     "more",
     "indicator",
-    "arrow"
+    "arrow",
+    "code-evolve"
   ],
   "author": "Steven Spungin",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-evolve/v-scroll-indicator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/code-evolve/v-scroll-indicator/issues"
+  },
   "peerDependencies": {
     "vue": "^2.7.0 || ^3.0.0"
   },

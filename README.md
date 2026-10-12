@@ -12,6 +12,8 @@ more content is hidden. It works with **Vue 2.7 and Vue 3** from the same packag
 - Custom indicator content through named slots.
 - Theming through CSS custom properties.
 
+Source and issues: [github.com/code-evolve/v-scroll-indicator](https://github.com/code-evolve/v-scroll-indicator)
+
 # Install
 
 ```bash
