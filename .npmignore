@@ -1,10 +1,6 @@
-# This will include license, readme, changelog, package.json, the dist directory, and the demo directory.
+# Allow-list: exclude everything, then re-include what ships.
+# npm always adds package.json, README.md and LICENSE on its own.
 *
 !dist/*
 !demo/*
-LICENSE.header.txt
-#!src/*
-#*.iml
-#.gradle
-#.git
-#*.gradle.kts
+!CHANGELOG.md
