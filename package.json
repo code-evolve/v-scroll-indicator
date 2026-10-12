@@ -1,6 +1,6 @@
 {
   "name": "v-scroll-indicator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Vue 2 and Vue 3 component that shows indicators when scrollable content extends past the visible area.",
   "type": "module",
   "main": "dist/v-scroll-indicator.cjs",

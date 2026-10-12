@@ -1,3 +1,6 @@
+# 1.0.2
+## Changed
+- The package now includes this changelog.
 # 1.0.1
 ## Changed
 - The package metadata now declares the source repository, the issue tracker and the documentation homepage, and adds the `code-evolve` keyword.
