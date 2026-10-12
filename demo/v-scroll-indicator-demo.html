@@ -1,0 +1,72 @@
+<!doctype html>
+<!--
+
+    v-scroll-indicator (c) 2018-present Steven Spungin
+
+    v-scroll-indicator is licensed under the MIT License.
+
+    You should have received a copy of the license along with this work.
+    If not, see <https://opensource.org/licenses/MIT>.
+
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>v-scroll-indicator demo (Vue 3)</title>
+  <script src="https://unpkg.com/vue@3.5.43/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/vue-demi@0.14.10/lib/index.iife.js"></script>
+  <script src="../dist/v-scroll-indicator.umd.js"></script>
+  <style>
+  body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem;
+         background: linear-gradient(135deg, #e0e7ff, #fce7f3); min-height: 100vh; }
+  .v-scroll-indicator { border-radius: 14px; overflow: hidden; margin-bottom: .5rem;
+                        background: rgba(255, 255, 255, .5); box-shadow: 0 8px 30px rgba(15, 23, 42, .12); }
+  .row { padding: .55rem 1rem; color: #fff; font-weight: 600; }
+  .row:nth-child(4n+1) { background: #6366f1; } .row:nth-child(4n+2) { background: #ec4899; }
+  .row:nth-child(4n+3) { background: #14b8a6; } .row:nth-child(4n) { background: #f59e0b; }
+  .themed { --v-scroll-indicator-color: #fff; --v-scroll-indicator-background: rgba(15, 23, 42, .1); --v-scroll-indicator-text-shadow: 0 0 6px rgba(0, 0, 0, .8);
+            --v-scroll-indicator-border: rgba(255, 255, 255, .25); }
+  .tiles { display: flex; gap: .5rem; padding: .75rem; }
+  .tile { display: inline-flex; align-items: center; justify-content: center; min-width: 3.5rem; height: 2.5rem;
+          border-radius: 8px; color: #fff; font-weight: 700; background: hsl(calc(var(--n) * 12), 70%, 55%); }
+  .para { margin: 0; padding: .6rem 1rem; }
+  .para:nth-child(odd) { background: rgba(99, 102, 241, .15); }
+</style>
+</head>
+<body>
+<div id="app">
+  <h1>v-scroll-indicator on Vue {{ version }}</h1>
+
+  <h2>Vertical, with reach events</h2>
+  <p>Last event: <code>{{ lastEvent }}</code></p>
+  <v-scroll-indicator height="2in" @reach-top="lastEvent = 'reach-top'" @reach-bottom="lastEvent = 'reach-bottom'">
+    <div v-for="n in rows" :key="n" class="row">Row {{ n }}</div>
+  </v-scroll-indicator>
+  <button type="button" @click="rows += 5">Add 5 rows</button>
+  <button type="button" @click="rows = Math.max(1, rows - 5)">Remove 5 rows</button>
+
+  <h2>Horizontal, themed</h2>
+  <v-scroll-indicator direction="horizontal" class="themed" height="4em">
+    <div class="tiles"><span v-for="n in 30" :key="n" class="tile" :style="{ '--n': n }">{{ n }}</span></div>
+  </v-scroll-indicator>
+
+  <h2>Custom indicator slots</h2>
+  <v-scroll-indicator height="1.5in" :scroll-step="0.5">
+    <template #up="{ active }"><small>{{ active ? '\u25B2 earlier' : '' }}</small></template>
+    <template #down="{ active }"><small>{{ active ? 'more \u25BC' : '' }}</small></template>
+    <p v-for="n in 12" :key="n" class="para">Paragraph {{ n }}</p>
+  </v-scroll-indicator>
+
+  <h2>Content that fits shows no indicators</h2>
+  <v-scroll-indicator height="1in">
+    <div class="para">Line 1<br/>Line 2<br/>Line 3</div>
+  </v-scroll-indicator>
+</div>
+
+<script>
+  Vue.createApp({
+    data: () => ({ rows: 20, lastEvent: 'none', version: Vue.version })
+  }).use(VScrollIndicator).mount('#app')
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# This will include license, readme, changelog, package.json, the dist directory, and the demo directory.
+*
+!dist/*
+!demo/*
+LICENSE.header.txt
+#!src/*
+#*.iml
+#.gradle
+#.git
+#*.gradle.kts

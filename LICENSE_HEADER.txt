@@ -1,0 +1,6 @@
+v-scroll-indicator (c) 2018-present Steven Spungin
+
+v-scroll-indicator is licensed under the MIT License.
+
+You should have received a copy of the license along with this work.
+If not, see <https://opensource.org/licenses/MIT>.
