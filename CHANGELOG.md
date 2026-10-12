@@ -1,3 +1,7 @@
+# 1.0.1
+## Changed
+- The package metadata now declares the source repository, the issue tracker and the documentation homepage, and adds the `code-evolve` keyword.
+- The README links to the source.
 # 1.0.0
 Several of these changes break 0.1.x usage.
 ## Breaking
